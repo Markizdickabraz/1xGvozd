@@ -88,7 +88,7 @@
         <h2>Найкращі коофіцієнти</h2>
         <h3>Зроби свою ставку для перемоги</h3>
         <form id="betForm">
-            <input type="number" id="betAmount" placeholder="Введіть вашу ставку" min="0">
+            <input type="number" id="betAmount" placeholder="Введіть вашу ставку" min="0" inputmode="numeric">
             <input type="submit" value="Ставка">
         </form>
     </div>
@@ -100,18 +100,25 @@
 
             if (isNaN(betAmount)) {
                 alert("Помилка: Введено нечислове значення");
-            } else if (betAmount >= 0 && betAmount <= 99) {
+            } else if (betAmount < 100) {
                 alert("Мала ставка");
-            } else if (betAmount >= 100 && betAmount <= 499) {
-                alert("Оппа, Дімон летить на гараж");
-            } else if (betAmount >= 500 && betAmount <= 999) {
-                alert("Бля, дієта по пизді");
-            } else if (betAmount >= 1000 && betAmount <= 9999) {
-                alert("Оце ти лох, а я ніт");
-            } else if (betAmount >= 10000 && betAmount <= 99999) {
-                alert("Ага, в Польшу я не іду, лошок");
+            } else if (betAmount >= 100 && betAmount <= 99999) {
+                const randomNumber = Math.random(); // Генеруємо випадкове число від 0 до 1
+                if (randomNumber < 0.25) {
+                    alert("Ура, ти Мудень переміг! Дімон сьогодні без пива.");
+                } else if (randomNumber < 0.5) {
+                    alert("Ви виграли ставку, але Дімон все одно п'є пиво.");
+                } else if (randomNumber < 0.75) {
+                    alert("Ти програв, але знову спробуй! Дімон сьогодні на паузі.");
+                } else {
+                    alert("Ти програв, можливо наступного разу вдалося б перемогти Дімона.");
+                }
+            } else {
+                alert("Шоти пиздиш, що у тебе є такі гроші?");
             }
         });
+
+
     </script>
 </body>
 
