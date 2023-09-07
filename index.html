@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ставка</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #d5f4ff;
+            /* Світло-лаконічний колір фону */
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            /* Білий фон контейнера */
+            padding: 20px;
+            border-radius: 10px;
+            /* Бордер радіуси */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Тінь для стилізації */
+        }
+
+        h1 {
+            color: #000000;
+            /* Чорний колір тексту */
+        }
+
+        /* Стилізований інпут */
+        input[type="number"] {
+            max-width: 220px;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 10px;
+            background-color: #f0f0f0;
+            /* Світлий сірий колір фону */
+        }
+
+        /* Додатковий стиль для кнопки ставки */
+        input[type="submit"] {
+            width: 100px;
+            background-color: #0000ff;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Адаптація стилів для пристроїв з меншою шириною екрану */
+        @media (max-width: 768px) {
+            body {
+                background-color: #d5f4ff;
+                /* Збережемо світло-лаконічний фон */
+            }
+
+            .container {
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+        }
+
+        /* Закруглені краї картинки */
+        img {
+            border-radius: 50%;
+            max-width: 320px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>1xGvozd</h1>
+        <img src="./img/Gvozd.jpeg" alt="Gvozd photo">
+        <h2>Найкращі коофіцієнти</h2>
+        <h3>Зроби свою ставку для перемоги</h3>
+        <form id="betForm">
+            <input type="number" id="betAmount" placeholder="Введіть вашу ставку" min="0">
+            <input type="submit" value="Ставка">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("betForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            const betAmount = parseInt(document.getElementById("betAmount").value);
+
+            if (isNaN(betAmount)) {
+                alert("Помилка: Введено нечислове значення");
+            } else if (betAmount >= 0 && betAmount <= 99) {
+                alert("Мала ставка");
+            } else if (betAmount >= 100 && betAmount <= 499) {
+                alert("Оппа, Дімон летить на гараж");
+            } else if (betAmount >= 500 && betAmount <= 999) {
+                alert("Бля, дієта по пизді");
+            } else if (betAmount >= 1000 && betAmount <= 9999) {
+                alert("Оце ти лох, а я ніт");
+            } else if (betAmount >= 10000 && betAmount <= 99999) {
+                alert("Ага, в Польшу я не іду, лошок");
+            }
+        });
+    </script>
+</body>
+
+</html>
